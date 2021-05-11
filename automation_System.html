@@ -1,0 +1,403 @@
+<html>
+	
+	<head>
+		<link rel="stylesheet" href="Expedio.css"/>
+		<title>Automation System</title>
+
+	</head>
+
+
+	<body style="background-color: #3F2E56;">
+
+
+
+
+	<div id="outerDiv">
+
+		<div class="firstWhiteDiv" style="float: none;margin: auto;margin-top: 25px;width: 900px;">
+
+
+			<p class="mainTitle" id="mainTitle" contenteditable="true">Title</p>
+
+			<p class="subjectText"  id="mainSubject" contenteditable="true">Subject---Curriculum---Topic</p>
+
+
+		</div>
+
+		<div style="width: 900px;background-color: #EB6258;border-radius: 5px;padding: 10px;margin: auto;margin-top: 25px;">
+
+
+			<p style="font-family:'OpenSans-Light';font-size:22px;margin-top:0px;padding:7.5px;margin-bottom:0px;color:white;padding-bottom:0px;padding-bottom:10px;outline: none;" contenteditable="true" id="textBar0" onkeyup="refresh(0)"></p>
+
+			
+
+
+		</div>
+
+	</div>
+
+
+		<p style="width: 900px;background-color: #6ACB56;border-radius: 5px;padding: 10px;margin: auto;color: white;text-align: center;font-family:'OpenSans-Light';margin-top: 25px;font-size: 20px;cursor: pointer;" onclick="createDiv()">Create a new div</p>
+
+		<p style="width: 900px;background-color: #3994f9;border-radius: 5px;padding: 10px;margin: auto;color: white;text-align: center;font-family:'OpenSans-Light';margin-top: 25px;cursor: pointer;font-size: 20px;" onclick="getInfo()">Submit for HTML Code</p>
+
+		<p style="width: 900px;background-color: #3994f9;border-radius: 5px;padding: 10px;margin: auto;color: white;text-align: center;font-family:'OpenSans-Light';margin-top: 25px;cursor: pointer;font-size: 20px;" onclick="getDataInfo()">Submit for Database</p>
+
+		<div style="width: 900px;background-color: #EB6258;border-radius: 5px;padding: 10px;margin: auto;margin-top: 25px;" id="output">
+
+
+		</div>
+
+		<div style="width: 900px;background-color: #EF8A3F;border-radius: 5px;padding: 10px;margin: auto;margin-top: 25px;font-family: 'Trebuchet MS';color: white;font-size: 18px;line-height: 1.5;" id="databaseOutput">
+
+
+		</div>
+
+
+	<script type="text/javascript">
+		var counter = 0;
+
+		var colrArray = ["#EB6258","#EF8A3F","#6250CE","#6ACB56","#3994f9"];
+
+		var entireCode = "";
+
+		function getInfo(){
+
+			var leftRow = document.createElement("div");
+			leftRow.setAttribute("class","leftRow");
+			leftRow.setAttribute("id","leftRow");
+
+
+			var rightRow = document.createElement("div");
+			rightRow.setAttribute("id","rightRow");
+			rightRow.setAttribute("class","rightRow");
+
+			var firstWhiteDiv = document.createElement("div");
+			firstWhiteDiv.setAttribute("class","firstWhiteDiv");
+
+			var mainTitle = document.createElement("p");
+			mainTitle.setAttribute("class","mainTitle");
+			mainTitle.setAttribute("id","mainTitle");
+			mainTitle.innerText = document.getElementById("mainTitle").innerText;
+
+			var subjectText = document.createElement("p");
+			subjectText.setAttribute("class","subjectText");
+			subjectText.setAttribute("id","mainSubject");
+			subjectText.innerText = document.getElementById("mainSubject").innerText.split("---")[0];
+
+			firstWhiteDiv.appendChild(mainTitle);
+			firstWhiteDiv.appendChild(subjectText);
+			leftRow.appendChild(firstWhiteDiv);
+
+			document.getElementById("output").innerText = "";
+
+			var colorCounter = -1;
+
+			var urlCounts = 0;
+			var urlArray = [];
+
+
+
+
+			for(i=0;i<counter + 1;i++){
+				document.getElementById("output").innerText = "";
+				var innerHTML = document.getElementById("textBar" + i).innerHTML;
+				innerHTML = innerHTML.split("<div>");
+				innerHTML = innerHTML.join("");
+				var text = innerHTML.split("</div>");
+
+				var title = text[0];
+
+				
+
+				colorCounter++;
+				if(colorCounter == 5){
+					colorCounter = 0;
+				}
+
+				var div = document.createElement("div");
+				var t1 = document.createElement("p");
+				t1.setAttribute("class","DivTitle");
+				title = title.split("<br>");
+				title = title.join("");
+				t1.innerText = title;
+				div.appendChild(t1);
+				div.style.backgroundColor = colrArray[colorCounter];
+
+
+				
+
+				var a = i + 1;
+				if(a % 2 != 0){ // odd
+
+					div.setAttribute("class","leftRowDiv");
+					
+					for(x=1;x<text.length - 1;x++){
+
+						if(text[x].indexOf("IMG---") != -1){//Image
+							var imgArray2 = text[x].split("---");
+							var img2 = document.createElement("img");
+							img2.setAttribute("class","img");
+							img2.src = imgArray2[1];
+							img2.setAttribute("onclick","zoomImage('" + imgArray2[1] + "'," + imgArray2[2] + ")");
+
+							div.appendChild(img2);
+						}
+						
+						else{//Paragraph
+							var pr = document.createElement("p");
+							pr.setAttribute("class","DivParagraph");
+							if(text[x].indexOf("!-!-!-") != -1 && text[x].indexOf("IMG") == -1){//URL
+								var text1 = text[x].split("!-!-!-");
+
+								urlCounts++;
+								pr.innerText = text1[0] + " [" + urlCounts + "]";
+								
+								urlArray.push(text1[1]);
+
+							}
+							else{
+								pr.innerHTML = text[x];
+							}
+							
+
+							div.appendChild(pr);
+
+						}
+
+						
+					}
+					leftRow.appendChild(div);
+
+				}
+				else{//even
+					div.setAttribute("class","rightRowDiv");
+
+					for(x=1;x<text.length - 1;x++){
+
+						if(text[x].indexOf("IMG---") != -1){//Image
+										
+							var imgArray2 = text[x].split("---");
+							var img2 = document.createElement("img");
+							img2.setAttribute("class","img");
+							img2.src = imgArray2[1];
+							img2.setAttribute("onclick","zoomImage('" + imgArray2[1] + "'," + imgArray2[2] + ")");
+
+							div.appendChild(img2);
+						}
+						
+						else{//Paragraph
+
+							var pr = document.createElement("p");
+							pr.setAttribute("class","DivParagraph");
+
+							if(text[x].indexOf("!-!-!-") != -1 && text[x].indexOf("IMG") == -1){//URL
+								var text1 = text[x].split("!-!-!-");
+
+								urlCounts++;
+								pr.innerText = text1[0] + " [" + urlCounts + "]";
+								
+								urlArray.push(text1[1]);
+
+							}
+							else{
+								pr.innerHTML = text[x];
+							}
+							
+
+							div.appendChild(pr);
+
+						}
+					}
+					rightRow.appendChild(div);
+				}
+
+				if(i == counter){
+					
+
+					var div1 = document.createElement("div");
+					var p1 = document.createElement("p");	
+
+					p1.setAttribute("class","DivTitle");
+					p1.innerText = "References";
+					
+									
+					div1.appendChild(p1);
+
+					for(e=0;e<urlArray.length;e++){
+						var t = e + 1;
+
+						var pa1 = document.createElement("p");
+						pa1.setAttribute("class","DivParagraph");
+						pa1.style.wordWrap = "break-word";
+						pa1.innerHTML = "[" + t + "] " + urlArray[e];
+
+						div1.appendChild(pa1);
+					}
+					colorCounter++;
+					if(colorCounter == 5){
+						colorCounter = 0;
+					}
+
+					div1.style.backgroundColor = colrArray[colorCounter];
+
+					var r = i;
+					if(r % 2 != 0){ // odd
+						div1.setAttribute("class","leftRowDiv");
+						leftRow.appendChild(div1);
+					}
+					else{
+						div1.setAttribute("class","rightRowDiv");
+						rightRow.appendChild(div1);
+					}
+
+							
+				}
+				
+				
+				
+			}
+
+			entireCode +=  leftRow.outerHTML + "--------" +rightRow.outerHTML;
+			
+			
+			var splitCode = entireCode.split("</p>");
+			
+			document.getElementById("output").innerText = "";
+			document.getElementById("output").innerHTML = "";
+
+			for(q=0;q<splitCode.length;q++){
+
+
+				var p3 = document.createElement("p");
+				p3.setAttribute("class","divText");
+				splitCode[q] = splitCode[q].split("&lt;");
+				splitCode[q] = splitCode[q].join("<");
+				splitCode[q] = splitCode[q].split("&gt;");
+				splitCode[q] = splitCode[q].join(">");
+
+				if(splitCode[q].indexOf("<div") != -1){
+					var splitText = splitCode[q].split("<p")
+					var p4 = document.createElement("p");
+					p4.setAttribute("class","divText");
+					p4.innerText = splitText[0];
+					document.getElementById("output").appendChild(p4);
+					p3.innerText = "<p" + splitText[1] + "</p>";
+
+				}
+				
+				else if(splitCode[q].indexOf("<img") != -1){
+					var splitText = splitCode[q].split("<p")
+					var p5 = document.createElement("p");
+					p5.setAttribute("class","divText");
+					p5.innerText = splitText[0];
+					document.getElementById("output").appendChild(p5);
+					p3.innerText = "<p" + splitText[1] + "</p>";
+
+				}
+				else if(splitCode[q].indexOf("</div>") != -1){
+					var splitText = splitCode[q].split("</p>")
+					p3.innerText = splitText[0];
+
+				}
+
+				else{
+					p3.innerText = splitCode[q] + "</p>"; 
+				}
+				
+
+				
+				document.getElementById("output").appendChild(p3);
+				
+				
+			}
+		}
+
+		function createDiv() {
+			var div = document.createElement("div");
+			div.setAttribute("style","width: 900px;background-color: #EB6258;border-radius: 5px;padding: 10px;margin: auto;margin-top: 25px;");
+			var p = document.createElement("p");
+			p.setAttribute("style","font-family:'OpenSans-Light';font-size:22px;margin-top:0px;padding:7.5px;margin-bottom:0px;color:white;padding-bottom:0px;padding-bottom:10px;outline: none;");
+			p.setAttribute("contenteditable","true");
+			counter++;
+			p.setAttribute("id","textBar" + counter);
+			p.setAttribute("onkeyup","refresh(" + counter + ")");
+			div.appendChild(p);
+			div.style.backgroundColor = colrArray[counter];
+			document.getElementById("outerDiv").appendChild(div);
+
+		}
+
+		function getDataInfo(){
+			
+
+			var subject = document.getElementById("mainSubject").innerText.split("---");
+
+			var singleData = "['" + document.getElementById("mainTitle").innerText + "'";
+			var middleData = ",[['" + subject[0] + "'],'" + subject[2] + "']";
+			singleData += middleData;
+			singleData += ",['" + subject[1] + "']";
+
+			for(i=0;i<counter + 1;i++){
+				document.getElementById("output").innerText = "";
+				var innerHTML = document.getElementById("textBar" + i).innerHTML;
+				innerHTML = innerHTML.split("<div>");
+				innerHTML = innerHTML.join("");
+				innerHTML = innerHTML.split("<br>");
+				innerHTML = innerHTML.join("");
+				innerHTML = innerHTML.split("&nbsp;");
+				innerHTML = innerHTML.join("");
+				innerHTML = innerHTML.split("'");
+				innerHTML = innerHTML.join("^");
+				var text = innerHTML.split("</div>");
+				
+				
+
+				
+
+				var smallPart = "";
+				for(o=0;o<text.length - 1;o++){
+					
+					if(o == 0){
+						smallPart += ",[" + "'" + text[o] + "'";
+					}
+					
+					else{
+						var ss = "";
+						if(text[o].indexOf("!-!-!-") != -1){
+							var splitT = text[o].split("!-!-!-");
+							ss = ",['" + splitT[0] + "','" + splitT[1] + "']";
+							
+						}
+						else{
+							ss = ",['" + text[o] + "','null']";
+						}
+
+						smallPart += ss;
+						if(o == text.length - 2){
+							singleData += smallPart;
+						}
+					}
+					
+				}
+
+
+			}
+
+			
+			singleData = singleData.replace(/\&lt;/g,'\<');
+			singleData = singleData.replace(/\&gt;/g,'\>');
+			singleData = singleData.replace(/\'/g,'\"');
+			singleData = singleData.replace(/\^/g,'\'');
+			document.getElementById("databaseOutput").innerText = singleData;
+		}
+		
+		
+
+
+	</script>
+
+	</body>
+
+
+</html>

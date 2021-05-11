@@ -1,0 +1,234 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="Expedio.css"/>
+	<script src="Expedio.js" type="text/javascript"></script>
+	<script src="Database - file info.js" type="text/javascript"></script>
+	<script data-ad-client="ca-pub-9294954133049400" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	<title>Encyclopedia for students | Expedio</title>
+
+</head>
+
+<body style="background-color:#3F2E56;margin:0px;padding:0px;" onbeforeunload="return checkHistory()">
+
+<div id="blackCover" style="width:100%;height:100%;background-color:black;background-color: rgba(0,0,0,0.5);position:absolute;z-index:100;display:none;" onclick="cancelZoom()">
+
+	<p class="clickAnywhereTo" id="clickAnywhere">Click anywhere to go back</p>
+	<div style="margin:auto;max-height: 85%;overflow: auto;" id="outsideImg">
+		<img id="bigImg">
+	</div>
+
+	<div style="margin:auto;display:none;width:90%" id="outsideFrame">
+		<iframe src="" width="100%" height="80%" scrolling="yes" style="border:none;background-color:white;border-radius:5px;" id="bigFrame" name="bigFrame">
+
+		</iframe>
+		
+	</div>
+
+
+	
+
+</div>
+
+<div id="searchCover" style="width:100%;height:100%;background-color:black;background-color: rgba(0,0,0,0.5);position:absolute;z-index:2;display:none;margin-top:65px;" onclick="hideSearchCover()">
+
+	<div class="BigsearchTip" id="BigsearchTip">
+		<div class="searchTip" id="searchTip0">
+			<p class="searchTipTitle" id="searchTitle0"></p>
+		</div>
+		<div class="searchTip" id="searchTip1">
+			<p class="searchTipTitle" id="searchTitle1"></p>
+		</div>
+		<div class="searchTip" id="searchTip2">
+			<p class="searchTipTitle" id="searchTitle2"></p>
+		</div>
+		<div class="searchTip" id="searchTip3">
+			<p class="searchTipTitle" id="searchTitle3"></p>
+		</div>
+		<div class="searchTip" id="searchTip4">
+			<p class="searchTipTitle" id="searchTitle4"></p>
+		</div>
+		<div class="searchTip" id="searchTip5">
+			<p class="searchTipTitle" id="searchTitle5"></p>
+		</div>
+
+	</div>
+</div>
+
+<div class="topDiv">
+
+<div style="width:80%;margin:auto;">
+
+	<p style="font-family:'Trebuchet MS';font-weight:bold;font-size:25px;margin-top:0px;margin-bottom:0px;color:white;padding-bottom:0px;margin-top:17.5px;padding-right:17.5px;float:left;cursor:pointer" onclick="toHomePage()"><span style="color:#EB6258;">E</span><span style="color:#EF8A3F;">x</span><span style="color:#EBCA48;">p</span><span style="color:#EBCA48;">e</span><span style="color:#6ACB56;">d</span><span style="color:#EF8A3F;">i</span><span style="color:#EB6258;">o</span>.</p>
+
+
+	<div>
+		<input type="button" style="border:none;border-radius:5px 0px 0px 5px;padding:7.5px;float: left;margin-top:13.5px;color:white;font-family: 'Roboto Slab';font-size:17px;outline:none;background-color:transparent;cursor:pointer;" value="❮" onclick="goBack()" id="toBack">
+		<input type="button" style="margin-left:2.5px;border:none;border-radius:0px 5px 5px 0px;padding:7.5px;float: left;margin-top:13.5px;color:white;font-family: 'Roboto Slab';font-size:17px;outline:none;background-color:transparent;cursor:pointer;" value="❯" onclick="goForward()" id="toForward">
+	</div>
+
+	<input style="font-family:'Trebuchet MS';font-weight:bold;font-size:20px;margin-bottom:0px;color:white;padding-bottom:0px;margin-top:20px;padding-right:7.5px;background-color:transparent;border:none;border-left:2px solid white;outline:none;float:left;margin-left:10px;padding-left:17.5px;width:70%;" placeholder="Let's learn ..." id="searchBox" onkeyup="boxSearch()" onclick="hideSearchCover()">
+
+
+
+
+</div>
+</div>
+
+<div style="width: 100%;height:85%;background-color: #2f2240;">
+
+	<div style="width: 80%;margin:auto;">
+
+		<h1 style="font-family:'Trebuchet MS';font-size: 5vw;width:50%;margin:0px;padding-top:12.5%;color: white;float:left;">Meet <span style="color:#EB6258;">E</span><span style="color:#EF8A3F;">x</span><span style="color:#EBCA48;">p</span><span style="color:#EBCA48;">e</span><span style="color:#6ACB56;">d</span><span style="color:#EF8A3F;">i</span><span style="color:#EB6258;">o</span>, your encyclopedia</h1>
+
+		<div style="width:35%;height:380px;border-left:4px solid white;float:left;margin-top:8%;margin-left:60px;padding: 20px;">
+
+			<p style="font-family:'Trebuchet MS';font-size: 30px;width:100%;margin:0px;color: white;text-align: right;font-weight: bold;">Let's start <span style="color:#EB6258;">l</span><span style="color:#EF8A3F;">e</span><span style="color:#EBCA48;">a</span><span style="color:#EBCA48;">r</span><span style="color:#EBCA48;">n</span><span style="color:#6ACB56;">i</span><span style="color:#EF8A3F;">n</span><span style="color:#EB6258;">g</span></p>
+
+			<div style="width:240px;background-color:#EB6258;border-radius:5px;margin-top:25px;padding:10px;cursor: pointer;float: right;" onclick="changePage(1,0,'Biology')">
+
+				<img src="biology.png" style="width:150px;height:150px;text-align:center;margin-left:45px;cursor:pointer;">
+
+				<p style="font-family:'Trebuchet MS';font-size:30px;font-weight:bold;margin-top:0px;padding:7.5px;margin-bottom:0px;color:white;padding-bottom:0px;text-align:center;">Biology</p>
+
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+<div style="width: 100%;background-color: white;padding-bottom: 50px;">
+
+	<div style="width: 80%;margin:auto;padding-top: 50px;">
+
+		<h1 style="text-align:center;font-family:'Trebuchet MS';color: #2f2240;width:100%;">A digital revision encyclopedia for you</h1>
+
+		<h3 style="text-align:center;font-family:'Trebuchet MS';color: #9E9E9E;width:100%;padding-bottom: 15px;">What if you had an amazing teacher by your side whenever you were trying to learn?</h3>
+
+
+		<div style="height: 150px;">
+			<div style="width:45%;float:left;border-radius: 5px;">
+				
+				<h2 style="font-family:'Trebuchet MS';color: #EB6258;width:100%;text-align: left;">Simple sentences,<br/> simple words</h2>
+
+				<h3 style="text-align:left;font-family:'Trebuchet MS';color: #9E9E9E;width:100%;padding-bottom: 15px;">Jargon-free, bite sized content designed to help students to get </h3>
+
+			</div>
+
+			<div style="width:45%;margin-left:5%;float: left;border-radius: 5px;">
+
+				<h2 style="font-family:'Trebuchet MS';color: #EF8A3F;width:100%;text-align: left;">All covered</h2>
+
+				<h3 style="text-align:left;font-family:'Trebuchet MS';color: #9E9E9E;width:100%;padding-bottom: 15px;">Covers everthing you need to know for learning and revising of your current courses.</h3>
+
+			</div>
+
+		</div>
+
+		<h3 style="text-align:center;font-family:'Trebuchet MS';color: #9E9E9E;margin-top: 50px;">Copyright © 2017 Expedio.org | By Zhonghe Zhang</h3>
+
+	</div>
+</div>
+
+
+
+<script>
+	loadGrade();
+	window.onload = function(){
+
+		if( ("onhashchange" in window) && ((typeof document.documentMode==="undefined") || document.documentMode==8)) {
+
+		    // 浏览器支持onhashchange事件
+		    window.onhashchange = hashChangeFire;
+		      // TODO，对应新的hash执行的操作函数
+		}
+		else{
+		    // 不支持则用定时器检测的办法
+		    setInterval(function() {
+		        var ischanged = isHashChanged();  // TODO，检测hash值或其中某一段是否更改的函数
+		        if(ischanged) {
+		            hashChangeFire();  // TODO，对应新的hash执行的操作函数
+		        }
+		    }, 150);
+		}
+
+
+
+	}
+
+ function startmarquee(lh,speed,delay){
+    var t;
+    var oHeight = 210; /**//** div的高度 **/
+    var p=false;
+    var o=document.getElementById("show");
+    var preTop = 0;
+    o.scrollTop = 0;
+    function start(){
+        t=setInterval(scrolling,speed);
+        //  o.scrollTop += 1;
+    }
+    function scrolling(){
+  		//  alert()
+    	 //   if(o.scrollTop%lh!=0 && o.scrollTop%(o.scrollHeight-oHeight-1)!=0){
+ 		if( o.scrollHeight-o.offsetHeight<o.scrollTop){
+
+            preTop = o.scrollTop;
+            o.scrollTop+=1;
+            if(preTop >= o.scrollHeight || preTop==o.scrollTop){
+                o.scrollTop = 0;
+            }
+        }else{
+          // clearInterval(t);
+          // setTimeout(start,delay);
+        }
+         o.scrollTop+=1
+    }
+    	setTimeout(start,delay);
+	}
+	startmarquee(20,20,500);
+/**//**startmarquee(一次滚动高度,速度,停留时间);**/
+
+function hashChangeFire(){
+
+	if(window.location.href.indexOf("#") == -1){
+
+		toHomePage();
+	}
+	else{
+
+
+		var url = window.location.href.split("#")[1].split("---");
+
+		selectTip(url[0],url[1],url[2]);
+
+	}
+
+}
+
+	function check(){
+		if(window.location.href.indexOf("#") == -1){
+			toHomePage();
+		}
+		else{
+			var url = window.location.href.split("#")[1].split("---");
+			selectTip(url[0],url[1],url[2]);
+		}
+	}
+
+	function checkHistory(){
+		window.scrollTo(0,0);
+		return window.scrollTo(0,0);
+
+	}
+</script>
+
+
+</body>
+
+
+</html>

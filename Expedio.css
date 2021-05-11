@@ -1,0 +1,269 @@
+
+
+@font-face {
+	font-family: "OpenSans-Regular";
+    src: url('OpenSans-Regular.ttf'); /* IE9*/
+    src: url('OpenSans-Regular.ttf#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('OpenSans-Regular.ttf') format('woff'), /* chrome、firefox */
+    url('OpenSans-Regular.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('OpenSans-Regular.ttf#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "OpenSans-Light";
+    src: url('OpenSans-Light.ttf'); /* IE9*/
+    src: url('OpenSans-Light.ttf#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('OpenSans-Light.ttf') format('woff'), /* chrome、firefox */
+    url('OpenSans-Light.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('OpenSans-Light.ttf#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "OpenSans-Light Bold";
+    src: url('OpenSans-Bold.ttf'); /* IE9*/
+    src: url('OpenSans-Bold.ttf#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('OpenSans-Bold.ttf') format('woff'), /* chrome、firefox */
+    url('OpenSans-Bold.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('OpenSans-Bold.ttf#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+
+.BigsearchTip{
+    width:512.5px;
+    height:400px;
+    border-radius: 5px;
+    margin-left:161.5px;
+    margin-top: 10px;
+    z-index: 1;
+    position: absolute;
+}
+.searchTip{
+    z-index: 1000;
+    width:485px;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+.searchTip:hover{
+    margin-left:10px;
+    background-color:#eaeaea;
+}
+.searchTipDis{
+    font-size:15px;
+    font-family: 'Roboto Slab';
+    color:gray;
+    margin-bottom:5px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+}
+.searchTipTitle{
+    font-size:20px;
+    font-family: 'Trebuchet MS';
+    color:#aaaaaa;
+    margin-top:2.5px;
+    font-weight: bold;
+    margin-bottom:5px;
+}
+
+.fullScreenA{
+    font-family:'Trebuchet MS';
+    font-size:18px;
+    font-weight:bold;
+    margin-top:0px;
+    padding:7.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+    text-decoration:none;
+}
+.iframe{
+    margin-top:12.5px;
+    border:none;
+    border-radius:5px;
+    background-color:white;
+}
+.img{
+    margin-top:10px;
+    margin-bottom:10px;
+    color:white;
+    border-radius:5px;
+    width:100%;
+    background-color: :white;
+    cursor:pointer;
+}
+.rightRowDiv{
+    width:330px;
+    background-color:#EF8A3F;
+    border-radius:5px;
+    margin-top:25px;
+    padding:10px;
+}
+.DivTitle{
+    font-family:'Trebuchet MS';
+    font-size:30px;
+    font-weight:bold;
+    margin-top:0px;
+    padding:7.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+}
+.DivParagraph{
+    font-family:'OpenSans-Light';
+    font-size:18px;
+    margin-top:0px;
+    padding:7.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+    padding-bottom:10px;
+}
+.videoBox{
+    margin-top:12.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+    width:100%;
+    background-color:white;
+    border-radius:5px;
+}
+.videoTitle{
+    font-family:'Trebuchet MS';
+    font-size:18px;
+    font-weight:bold;
+    margin-top:0px;
+    padding:15px;
+    margin-bottom:0px;
+    padding-bottom:0px;
+    padding-bottom:10px;
+    color:#3F2E56;
+}
+
+.videoFrom{
+    font-family:'Trebuchet MS';
+    font-size:15px;
+    font-weight:bold;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-bottom:10px;
+    color:#aaaaaa;
+    padding-left:17.5px;
+}
+.relatedClick{
+    font-family:'OpenSans-Light';
+    font-size:18px;
+    margin-top:-5px;
+    padding:7.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+    padding-bottom:10px;
+    text-decoration:underline;
+    cursor: pointer;
+}
+
+b{
+    font-family:'OpenSans-Light Bold';
+}
+
+.subjectText{
+    font-family:'Trebuchet MS';
+    font-size:25px;
+    margin-top: 5px;
+    margin-bottom: 7.5px;
+    padding-left:20px;
+    color:#EB6258;
+}
+.upsidedown{
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); /* IE6,IE7 */
+    ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+    -moz-transform: rotate(-180deg); /* 火狐3.5+ */
+    -o-transform: rotate(-180deg); /* Opera 10.5 */
+    -webkit-transform: rotate(-180deg); /* Safari 3.1+, Chrome */
+    position: absolute; 
+    font-family:'OpenSans-Light';
+    font-size:18px;
+    margin-top:0px;
+    padding:7.5px;
+    margin-bottom:0px;
+    color:white;
+    padding-bottom:0px;
+    padding-bottom:10px;
+    word-wrap:normal|break-word;
+    text-align: right;
+}
+.topDiv{
+    background-color:#2f2240;
+    width:100%;
+    height:65px;
+}
+.contentPage{
+    width:1100px;
+    margin:auto;
+    margin-bottom:10px;
+}
+.startLearningButton{
+    width:400px;
+    height:52.5px;
+    background-color: white;
+    margin: auto;
+    margin-top:40px;
+    font-family:'Trebuchet MS';
+    border-radius:5px;
+    font-size: 30px;
+    color: #6ACB56;;
+    font-weight:bold;
+    text-align: center;
+    padding-top: 17.5px;
+    cursor: pointer;
+}
+.startLearningButton:hover{
+    opacity: 0.8;
+}
+
+.grade {
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  font-size:20px;
+  font-family: 'Trebuchet MS';
+  color: white;
+  float: left;
+  margin-top:21.5px;
+  float: left;
+  cursor: pointer;
+
+}
+.confirmBut{
+    border:1px solid #6ACB56;
+    background-color: #6ACB56;
+    margin-top:10px;
+    border-radius: 3px;
+    font-family: 'Trebuchet MS';
+    font-size:16px;
+    outline: none;
+    padding:10px;
+    cursor: pointer;
+    color:white;
+    border-color:#6ACB56;
+
+}
+.clickAnywhereTo{
+    text-align: center;
+    color: white;
+    margin-top:2.5%;
+    font-size: 22px;
+    font-family: 'Trebuchet MS';
+    text-decoration: underline;
+    cursor: pointer;
+    padding-bottom: 0px;
+}
+
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+
